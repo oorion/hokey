@@ -1,6 +1,6 @@
 class HokeyPokey
   def verse(number)
-    body_part = BodyPart.new
+    body_part = BodyPart.for(number)
 
     "You put your #{body_part.side(number)}#{body_part.specific_body_part(number)} in\n" +
     "You put your #{body_part.side(number)}#{body_part.specific_body_part(number)} out\n" +
@@ -16,25 +16,56 @@ class HokeyPokey
 end
 
 class BodyPart
+  def self.for(number)
+    case number
+    when 1, 2
+      Foot
+    when 3, 4
+      Hand
+    when 5
+      Head
+    when 6
+      Self
+    end.new
+  end
+
   def side(number)
-    if number == 5 || number == 6
-      ""
-    elsif number % 2 == 1
+    if number % 2 == 1
       "right "
     else
       "left "
     end
   end
+end
 
+class Foot < BodyPart
   def specific_body_part(number)
-    if number == 1 || number == 2
-      "foot"
-    elsif number == 3 || number == 4
-      "hand"
-    elsif number == 5
-      "head"
-    elsif number == 6
-      "whole self"
-    end
+    "foot"
+  end
+end
+
+class Hand < BodyPart
+  def specific_body_part(number)
+    "hand"
+  end
+end
+
+class Head < BodyPart
+  def specific_body_part(number)
+    "head"
+  end
+
+  def side(number)
+    ""
+  end
+end
+
+class Self < BodyPart
+  def specific_body_part(number)
+    "self"
+  end
+
+  def side(number)
+    "whole "
   end
 end
