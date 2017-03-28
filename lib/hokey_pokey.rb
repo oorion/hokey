@@ -11,7 +11,7 @@ class HokeyPokey
   end
 
   def song
-    (1..6).map { |number| verse(number) }.join("\n")
+    1.upto(6).map { |number| verse(number) }.join("\n")
   end
 end
 
