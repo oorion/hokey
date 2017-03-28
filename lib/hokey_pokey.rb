@@ -1,8 +1,8 @@
 class HokeyPokey
   def verse(number)
-    "You put your #{side(number)}#{body_part(number)} in\n" +
-    "You put your #{side(number)}#{body_part(number)} out\n" +
-    "You put your #{side(number)}#{body_part(number)} in\n" +
+    "You put your #{specific_body_part(number)} in\n" +
+    "You put your #{specific_body_part(number)} out\n" +
+    "You put your #{specific_body_part(number)} in\n" +
     "And you shake it all about\n" +
     "You do the Hokey Pokey and you turn yourself around\n" +
     "That's what it's all about!\n"
@@ -34,5 +34,9 @@ class HokeyPokey
     elsif number == 6
       "whole self"
     end
+  end
+
+  def specific_body_part(number)
+    "#{side(number)}#{body_part(number)}"
   end
 end
