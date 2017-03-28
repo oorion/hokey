@@ -2,9 +2,9 @@ class HokeyPokey
   def verse(number)
     body_part = BodyPart.for(number)
 
-    "You put your #{body_part.side}#{body_part.specific_body_part} in\n" +
-    "You put your #{body_part.side}#{body_part.specific_body_part} out\n" +
-    "You put your #{body_part.side}#{body_part.specific_body_part} in\n" +
+    "You put your #{body_part} in\n" +
+    "You put your #{body_part} out\n" +
+    "You put your #{body_part} in\n" +
     "And you shake it all about\n" +
     "You do the Hokey Pokey and you turn yourself around\n" +
     "That's what it's all about!\n"
@@ -39,6 +39,10 @@ class BodyPart
     else
       "left "
     end
+  end
+
+  def to_s
+    "#{side}#{specific_body_part}"
   end
 
   private
